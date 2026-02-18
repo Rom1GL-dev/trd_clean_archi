@@ -24,17 +24,10 @@ Lancer la base de données PostgreSQL :
 docker compose up db -d
 ```
 
-Lancer les migrations Prisma :
-```
-npx prisma migrate dev
-```
-
-Rajouter les valeurs du csv la base de données :
-```
-npx prisma db seed
-```
-
 ## Lancement du projet
+
+Les migrations et le seed sont exécutés automatiquement au lancement du projet. La base de données sera créé avec les données du CSV
+
 Lancer le projet en mode CLI :
 ```
 npm run cli

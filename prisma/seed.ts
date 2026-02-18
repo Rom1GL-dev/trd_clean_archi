@@ -5,6 +5,12 @@ import * as path from 'path';
 const prisma = new PrismaClient();
 
 async function main() {
+  const existingMatchCount = await prisma.match.count();
+  if (existingMatchCount > 0) {
+    console.log('bdd xiste deja');
+    return;
+  }
+
   const csvPath = path.join(__dirname, '..', 'docs', 'data.csv');
   const fileContent = fs.readFileSync(csvPath, 'utf-8');
   const lines = fileContent.split('\n').filter((line) => line.trim() !== '');
